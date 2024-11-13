@@ -1,12 +1,16 @@
 <template>
   <div class="lesson-builder-wrapper">
     <Lesson :lessonId="lessonId" />
+  </div>
+  <div class="quize-builder-wrapper">
     <Quize
       :lessonId="lessonId"
       :lessonData="lessonData"
       @update-lesson-data="updateLessonData"
     />
   </div>
+    
+  
 </template>
 
 <script>
@@ -61,7 +65,3 @@ export default {
 };
 
 </script>
-
-<style lang="scss" scoped>
-  @use 'lessonPage.styles' as *;
-</style>

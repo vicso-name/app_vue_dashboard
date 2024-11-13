@@ -8,6 +8,7 @@ $background-color_2: transparent;
     width: 100%;
 	/**** Lesson Details Section ****/
 	.lesson-details{
+		margin-top: 50px;
 		.lesson-details__title {
 			font-family: $font-family_roboto;
 			padding: 15px;
@@ -53,7 +54,29 @@ $background-color_2: transparent;
         border-top-right-radius: 8px;
         display: flex;
         gap: 8px;
-        align-items: center;
+        justify-content: space-between;
+		.lessons-blocks__header{
+			display: flex;
+			gap: 8px;
+			align-items: center;
+		}
+		.add-new-block__btn{
+			width: 130px;
+			height: 35px;
+			line-height: 30px;
+			border-radius: 50px;
+			border: none;
+			background-color: #0883be;
+			cursor: pointer;
+			font-family: $font-family_roboto;
+			font-size: 14px;
+			font-weight: 700;
+			color: #fff;
+			transition: all .5s ease;
+			&:hover{
+				background-color: #208FC4;
+			}
+		}
         .lessons-blocks__title{
             font-family: $font-family_roboto;
             font-size: 16px;
@@ -63,7 +86,7 @@ $background-color_2: transparent;
         .fa-book{
             width: 20px;
             height: 20px;
-            color: #98A2B3;
+            color: #858585;
         }
     }
     .lessons-blocks__subtitle-wrapper{
@@ -286,23 +309,7 @@ $background-color_2: transparent;
 .add-new-block{
 	padding-top: 25px;
 	padding-bottom: 25px;
-	.add-new-block__btn{
-		width: 130px;
-		height: 35px;
-		line-height: 30px;
-		border-radius: 50px;
-		border: none;
-		background-color: #0883be;
-		cursor: pointer;
-		font-family: $font-family_roboto;
-		font-size: 14px;
-		font-weight: 700;
-		color: #fff;
-		transition: all .5s ease;
-		&:hover{
-			background-color: #208FC4;
-		}
-	}
+	
 	.material-block{
 		margin-top: 40px;
 		.material-block__input-wrapper{
