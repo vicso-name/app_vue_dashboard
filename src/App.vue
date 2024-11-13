@@ -23,7 +23,7 @@
       </ul>
     </nav>
 
-    <section class="main-content lesson-creation-wrapper">
+    <section class="main-content">
       <router-view></router-view>
     </section>
 

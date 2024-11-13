@@ -12,9 +12,6 @@
     <!-- ADD NEW BLOCK SECTION -->
     <div class="add-new-block add-material-form">
 
-      <button class="add-new-block__btn" @click="openMaterialModal">
-        <span>Add New Block</span>
-      </button>
 
       <!-- Modal for Material Selection -->
       <div v-if="showMaterialModal" class="modal" @click.self="closeMaterialModal">
@@ -203,8 +200,13 @@
     <div class="lessons-blocks">
 
       <div class="lessons-blocks__title-wrapper">
-          <font-awesome-icon icon="fa-book" />
-          <h2 class="lessons-blocks__title">Lesson Blocks</h2>
+          <div class="lessons-blocks__header">
+            <font-awesome-icon icon="fa-book" />
+            <h2 class="lessons-blocks__title">Lesson Blocks</h2>
+          </div>
+          <button class="add-new-block__btn" @click="openMaterialModal">
+            <span>Add New Block</span>
+          </button>
       </div>
 
       <div class="lessons-blocks__subtitle-wrapper">
