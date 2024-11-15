@@ -122,17 +122,25 @@ $background-color_2: transparent;
     }
 	.lesson-materials {
 		width: 100%;
-		padding-top: 12px;
 		border-bottom: 1px solid #ebebeb;
-		padding-bottom: 22px;
-        transition: all .5s ease;
-        &:hover{
-            background-color: #f7fbfd;
-        }
+		
         /*** Lesson Block Row ***/
         .lesson-block-rows{
+			cursor: pointer;
             .lesson-block-item__header{
+				padding-top: 12px;
+				padding-bottom: 22px;
                 display: flex;
+				transition: all .5s ease;
+				border-bottom: 1px solid #ebebeb;
+				background-color: #fff;
+				transition: background-color 0.15s ease, border-left 0.15s ease;
+				&:hover{
+					background-color: #f7fbfd;
+				}
+				&.active{
+					background-color: #f7fbfd;
+				}
                 .lesson-block-item__order-number{
                     font-size: 16px;
                     justify-content: center;
@@ -177,6 +185,10 @@ $background-color_2: transparent;
                 }
                 .lesson-block-item__content{
                     width: 100%;
+					background-color: #fff;
+					max-height: 0;
+					overflow: hidden;
+					transition: max-height 0.5s ease;
 					.lesson-block-item__content-inner{
 						padding: 15px 68px;
 					}
@@ -245,63 +257,6 @@ $background-color_2: transparent;
     }
 }
 
-.lesson-materials__title_main {
-    .lesson-materials__title_main-title {
-        font-family: $font-family_roboto;
-        font-size: 20px;
-        font-weight: 600;
-        line-height: 28px;
-        text-align: left;
-    }
-}
-
-.lesson-materials__text_image {
-	.lesson-materials__text_image-image {
-		width: 90px;
-		height: 90px;
-		border-radius: 8px;
-	}
-	.lesson-materials__text_image-description {
-		font-family: $font-family_roboto;
-		font-size: 14px;
-		font-weight: 400;
-		line-height: 28px;
-		text-align: left;
-		max-width: 400px;
-		width: 100%;
-	}
-}
-
-.lesson-materials__subtitle {
-	.lesson-materials__subtitle-text {
-		font-family: $font-family_roboto;
-		font-size: 18px;
-		font-weight: 500;
-		line-height: 28px;
-		text-align: left;
-	}
-}
-
-.lesson-materials__example_underlined {
-	.lesson-materials__example_underlined-text {
-		font-family: $font-family_roboto;
-		font-size: 30px;
-		font-weight: 600;
-		line-height: 28px;
-		text-align: left;
-	}
-}
-
-.lesson-materials__title_underline {
-	.lesson-materials__title_underline-content {
-		font-family: $font-family_roboto;
-		font-size: 18px;
-		font-style: italic;
-		font-weight: 500;
-		line-height: 28px;
-		text-align: left;
-	}
-}
 
 
 /*** Add New Lesson Block ***/
@@ -309,168 +264,210 @@ $background-color_2: transparent;
 .add-new-block{
 	padding-top: 25px;
 	padding-bottom: 25px;
-	
-	.material-block{
-		margin-top: 40px;
-		.material-block__input-wrapper{
-			padding-top: 35px;
-			padding-bottom: 35px;
-			padding-right: 15px;
-			padding-left: 15px;
+}
+
+.material-block{
+	margin-top: 40px;
+	.material-block__input-wrapper{
+		padding-top: 35px;
+		padding-bottom: 35px;
+		padding-right: 15px;
+		padding-left: 15px;
+		background-color: #fff;
+		border-left: 4px solid #6BB5D8;
+		display: flex;
+		flex-direction: column;
+		row-gap: 5px;
+		.quill-editor-wrapper{
+			width: 600px;
+		}
+		.material-block__input{
+			box-sizing: border-box;
+			height: 40px;
+			width: 600px;
+			padding-right: 12px;
+			padding-left: 12px;
 			background-color: #fff;
-			border-left: 4px solid #6BB5D8;
-			display: flex;
-			flex-direction: column;
-			row-gap: 5px;
-			.quill-editor-wrapper{
-				width: 600px;
+			border: 1px solid #D0D5DD;
+			box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.1);
+			border-radius: 6px;
+			color: #344054;
+			margin-bottom: 15px;
+			&:focus{
+				outline: 3px solid #EBF5FA;
+				border-color: #399CCB;
 			}
-			.material-block__input{
-				box-sizing: border-box;
+		}
+		.material-block__input-textarea{
+			width: 600px;
+			height: 165px;
+			resize: none;
+			box-sizing: border-box;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			padding-right: 12px;
+			padding-left: 12px;
+			background-color: #fff;
+			border: 1px solid #D0D5DD;
+			box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.1);
+			border-radius: 6px;
+			color: #344054;
+			&:focus{
+				outline: 3px solid #EBF5FA;
+				border-color: #399CCB;
+			}
+		}
+		.dropdown {
+			position: relative;
+			display: inline-block;
+			cursor: pointer;
+			&__selected {
+				display: flex;
+				justify-content: space-between;
+				width: 600px;
 				height: 40px;
-				width: 600px;
-				padding-right: 12px;
-				padding-left: 12px;
 				background-color: #fff;
 				border: 1px solid #D0D5DD;
 				box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.1);
 				border-radius: 6px;
-				color: #344054;
-				margin-bottom: 15px;
-				&:focus{
-					outline: 3px solid #EBF5FA;
-    				border-color: #399CCB;
-				}
-			}
-			.material-block__input-textarea{
-				width: 600px;
-				height: 165px;
-				resize: none;
-				box-sizing: border-box;
-				padding-top: 10px;
-				padding-bottom: 10px;
-				padding-right: 12px;
-				padding-left: 12px;
-				background-color: #fff;
-				border: 1px solid #D0D5DD;
-				box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.1);
-				border-radius: 6px;
-				color: #344054;
-				&:focus{
-					outline: 3px solid #EBF5FA;
-    				border-color: #399CCB;
-				}
-			}
-			.dropdown {
-				position: relative;
-				display: inline-block;
-				cursor: pointer;
-				&__selected {
-					display: flex;
-					justify-content: space-between;
-					width: 600px;
-					height: 40px;
-					background-color: #fff;
-					border: 1px solid #D0D5DD;
-					box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.1);
-					border-radius: 6px;
-					font-family: $font-family_roboto;
-					color: $input_fields_color;
-					padding: 10px;
-					line-height: 17px;
-					font-size: 12px;
-					svg{
-						color: #98A2B3;
-						margin-top: 2px;
-					}
-				}
-				&__list {
-					position: absolute;
-					z-index: 1000;
-					padding: 0;
-					list-style: none;
-					border: 1px solid #ccc;
-					background-color: #fff;
-					width: 600px;
-					margin-top: -3px;
-				}
-				&__item {
-					padding: 10px;
-					cursor: pointer;
-					color: $input_fields_color;
-					font-size: 12px;
-					&:hover {
-						background-color: #2c83be;
-						color: #fff;
-					}
-					&--selected {
-						background-color: #ebf5fa;
-					}
-				}
-			}
-			.material-block__input-file{
-				margin-top: 5px;
-				margin-bottom: 5px;
-			}
-			.material-block__label{
-				display: block;
 				font-family: $font-family_roboto;
-				font-size: 14px;
-				font-weight: 600;
-				padding: 0;
-			}
-			.material-block__description{
-				display: block;
-				font-family: Roboto, sans-serif;
-				color: #98A2B3;
+				color: $input_fields_color;
+				padding: 10px;
+				line-height: 17px;
 				font-size: 12px;
-				font-weight: 500;
-				max-width: 600px;
+				svg{
+					color: #98A2B3;
+					margin-top: 2px;
+				}
+			}
+			&__list {
+				position: absolute;
+				z-index: 1000;
 				padding: 0;
+				list-style: none;
+				border: 1px solid #ccc;
+				background-color: #fff;
+				width: 600px;
+				margin-top: -3px;
+			}
+			&__item {
+				padding: 10px;
+				cursor: pointer;
+				color: $input_fields_color;
+				font-size: 12px;
+				&:hover {
+					background-color: #2c83be;
+					color: #fff;
+				}
+				&--selected {
+					background-color: #ebf5fa;
+				}
 			}
 		}
-		.material-block_button-wrapper{
-			display: flex;
-			gap: 10px;
-			margin-top: 20px;
+		.material-block__input-file{
+			margin-top: 5px;
+			margin-bottom: 5px;
 		}
-		.material-block__save-button{
-			width: 100px;
-			height: 33px;
-			border-radius: 6px;
-			border: none;
-			background-color: #0783BE;
-			border: 1px solid #0783BE;
-			cursor: pointer;
+		.material-block__label{
+			display: block;
 			font-family: $font-family_roboto;
-			color: #fff;
 			font-size: 14px;
-			font-weight: 500;
-			transition: all .5s ease;
-			&:hover{
-				background-color: #066998;
-				border-color: #066998;
-			}
+			font-weight: 600;
+			padding: 0;
 		}
-		.material-block__cancel-button{
-			width: 100px;
-			height: 33px;
-			border-radius: 6px;
-			border: none;
-			background-color: transparent;
-			border: 1px solid #0783BE;
-			cursor: pointer;
-			font-family: $font-family_roboto;
-			color: #0783BE;
-			font-size: 14px;
+		.material-block__description{
+			display: block;
+			font-family: Roboto, sans-serif;
+			color: #98A2B3;
+			font-size: 12px;
 			font-weight: 500;
-			transition: all .5s ease;
-			&:hover{
-				background-color: #f3f9fc;
-				border-color: #0783BE;
-				color: #0783BE;
-			}
+			max-width: 600px;
+			padding: 0;
 		}
+	}
+}
+
+.material-block_button-wrapper{
+	display: flex;
+	gap: 10px;
+	margin-top: 20px;
+}
+
+.edit-material-btn{
+	width: 100px;
+	height: 33px;
+	border-radius: 6px;
+	border: none;
+	background-color: transparent;
+	border: 1px solid #0783BE;
+	cursor: pointer;
+	font-family: $font-family_roboto;
+	color: #0783BE;
+	font-size: 14px;
+	font-weight: 500;
+	transition: all .5s ease;
+	&:hover{
+		background-color: #f3f9fc;
+		border-color: #0783BE;
+		color: #0783BE;
+	}
+}
+
+.remove-material-btn{
+	width: 100px;
+	height: 33px;
+	border-radius: 6px;
+	border: none;
+	background-color: #dc3545;
+	border: 1px solid #dc3545;
+	cursor: pointer;
+	font-family: $font-family_roboto;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 500;
+	transition: all .5s ease;
+	&:hover{
+		background-color: #c82333;
+		border-color: #c82333;
+	}
+}
+
+.material-block__save-button{
+	width: 100px;
+	height: 33px;
+	border-radius: 6px;
+	border: none;
+	background-color: #0783BE;
+	border: 1px solid #0783BE;
+	cursor: pointer;
+	font-family: $font-family_roboto;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 500;
+	transition: all .5s ease;
+	&:hover{
+		background-color: #066998;
+		border-color: #066998;
+	}
+}
+
+.material-block__cancel-button{
+	width: 100px;
+	height: 33px;
+	border-radius: 6px;
+	border: none;
+	background-color: transparent;
+	border: 1px solid #0783BE;
+	cursor: pointer;
+	font-family: $font-family_roboto;
+	color: #0783BE;
+	font-size: 14px;
+	font-weight: 500;
+	transition: all .5s ease;
+	&:hover{
+		background-color: #f3f9fc;
+		border-color: #0783BE;
+		color: #0783BE;
 	}
 }
 
