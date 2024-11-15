@@ -31,7 +31,7 @@
               <span class="material-title">{{ type.label }}</span>
             </div>
           </div>
-          <button class="modal-close-btn" @click="closeMaterialModal">Close</button>
+          <button class="modal-close-btn" @click="closeMaterialModal">Cancel</button>
         </div>
       </div>
 

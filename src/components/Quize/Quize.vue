@@ -27,7 +27,7 @@
               <span class="material-title">{{ type.label }}</span>
               </div>
           </div>
-          <button class="modal-close-btn" @click="closeQuizeModal">Close</button>
+          <button class="modal-close-btn" @click="closeQuizeModal">Cancel</button>
           </div>
       </div>
 
